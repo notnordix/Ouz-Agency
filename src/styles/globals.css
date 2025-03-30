@@ -65,7 +65,7 @@ input:-webkit-autofill:active {
   left: 0;
   right: 0;
   z-index: 50;
-  padding: 0.75rem 0;
+  padding: 0.75rem 0.5rem;
   padding-top: calc(0.75rem + env(safe-area-inset-top, 0px));
   background-color: transparent;
   width: 100%;
@@ -314,59 +314,71 @@ html {
   animation: pulse 2s ease-in-out infinite;
 }
 
-/* Infinity symbol animation */
-@keyframes flow {
-  0%,
-  100% {
-    stroke-dashoffset: 0;
-  }
+/* Sand Clock Animations */
+.sand-clock-container {
+  position: relative;
+  display: inline-block;
+  filter: drop-shadow(0 0 8px rgba(156, 45, 64, 0.4));
+}
+
+.sand-clock {
+  will-change: transform;
+  animation: clock 3s 1.25s ease-in-out infinite;
+  transform-origin: 50% 50%;
+}
+
+.sand-top,
+.sand-bottom {
+  will-change: transform;
+  transform-origin: 50% 30px;
+}
+
+.sand-top {
+  animation: clock-sand-top 3s ease-in-out infinite;
+}
+
+.sand-bottom {
+  animation: clock-sand-bottom 3s ease-in-out infinite;
+  transform: scale(0);
+}
+
+@keyframes clock {
+  20%,
   50% {
-    stroke-dashoffset: 100;
+    transform: rotate(180deg);
   }
-}
 
-.infinity-animation path {
-  stroke-dasharray: 100;
-  animation: flow 3s ease-in-out infinite;
-}
-
-/* Enhanced infinity symbol animation */
-.infinity-glow {
-  filter: drop-shadow(0 0 8px rgba(156, 45, 64, 0.6));
-  animation: glow 3s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from {
-    filter: drop-shadow(0 0 2px rgba(156, 45, 64, 0.6));
-  }
-  to {
-    filter: drop-shadow(0 0 8px rgba(156, 45, 64, 0.8));
-  }
-}
-
-.infinity-path {
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-  animation: draw 6s ease-in-out infinite;
-}
-
-@keyframes draw {
-  0% {
-    stroke-dashoffset: 100;
-    opacity: 0.4;
-  }
-  40% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-  60% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
+  70%,
   100% {
-    stroke-dashoffset: -100;
-    opacity: 0.4;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes clock-sand-top {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes clock-sand-bottom {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
   }
 }
 

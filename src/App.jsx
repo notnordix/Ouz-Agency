@@ -7,6 +7,7 @@ import { subscribeToNewsletter } from "./services/api"
 import { fadeInUpWithDelay, fadeInWithDelay } from "./utils/animations"
 import { PlaceholdersAndVanishInput } from "./components/PlaceholdersAndVanishInput"
 import { AnimatedText } from "./components/AnimatedText"
+import { SandClock } from "./components/SandClock"
 import { Instagram, Linkedin } from "lucide-react"
 import logo from "./assets/logo.png"
 
@@ -162,6 +163,7 @@ function App() {
               <img src={logo || "/placeholder.svg"} alt="OUZ Logo" className="h-12 sm:h-14 w-auto" />
             </motion.div>
 
+            {/* Sand Clock in Header */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{
@@ -182,53 +184,7 @@ function App() {
                   ease: "easeInOut",
                 }}
               />
-              <motion.svg
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="sm:w-10 sm:h-10 relative z-10"
-              >
-                <motion.path
-                  d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"
-                  stroke="white"
-                  initial={{ pathLength: 0, opacity: 0.4 }}
-                  animate={{
-                    pathLength: [0, 1, 1, 0],
-                    opacity: [0.4, 1, 1, 0.4],
-                    strokeWidth: [1.5, 2, 2, 1.5],
-                    scale: [0.95, 1, 1, 0.95],
-                    rotate: [0, 0, 0, 0],
-                  }}
-                  transition={{
-                    duration: 6,
-                    times: [0, 0.4, 0.6, 1],
-                    ease: "easeInOut",
-                    repeat: Number.POSITIVE_INFINITY,
-                  }}
-                />
-                <motion.path
-                  d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"
-                  stroke="rgba(255, 255, 255, 0.5)"
-                  initial={{ pathLength: 0, opacity: 0.2 }}
-                  animate={{
-                    pathLength: [1, 0, 0, 1],
-                    opacity: [0.2, 0.5, 0.5, 0.2],
-                    strokeWidth: [1, 1.5, 1.5, 1],
-                    scale: [1.05, 1, 1, 1.05],
-                    rotate: [0, 0, 0, 0],
-                  }}
-                  transition={{
-                    duration: 6,
-                    times: [0, 0.4, 0.6, 1],
-                    ease: "easeInOut",
-                    repeat: Number.POSITIVE_INFINITY,
-                  }}
-                />
-              </motion.svg>
+              <SandClock className="text-white w-6 h-8 sm:w-7 sm:h-9" />
             </motion.div>
           </motion.div>
         </div>
