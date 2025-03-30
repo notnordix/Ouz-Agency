@@ -32,7 +32,7 @@ input:-webkit-autofill:active {
   background-clip: content-box !important;
 }
 
-/* Update the hero-background class to use flex layout */
+/* Update the hero-background class to improve performance */
 .hero-background {
   position: relative;
   background-image: url("../assets/hero-bg.jpg");
@@ -49,14 +49,14 @@ input:-webkit-autofill:active {
 
 .hero-background::before {
   content: "";
-  position: absolute;
+  position: absolute; /* Changed from fixed to absolute */
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.8));
   z-index: 1;
-  position: fixed; /* Keep the overlay fixed */
+  /* Removed position: fixed */
 }
 
 .hero-content {
@@ -248,6 +248,14 @@ html {
   max-width: 100vw;
 }
 
+/* Improve scrolling performance */
+html,
+body {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Improve scrolling on iOS */
+  overscroll-behavior-y: none; /* Prevent bounce effects that can cause jank */
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -266,6 +274,14 @@ html {
   background: #555;
 }
 
+/* Optimize blur effects for better performance */
+.absolute.-top-10.-left-10.w-20.h-20.bg-primary-600\/20.rounded-full.blur-xl,
+.absolute.-bottom-10.-right-10.w-24.h-24.bg-primary-600\/20.rounded-full.blur-xl,
+.absolute.-z-10.w-full.h-full.top-0.left-0.bg-gradient-to-r.from-primary-600\/10.to-primary-700\/10.blur-3xl.rounded-full.transform.-translate-y-1\/2 {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
 /* Animated wave text effect */
 @keyframes wave {
   0%,
@@ -280,6 +296,8 @@ html {
 
 .animate-wave-text {
   animation: wave 4s ease-in-out infinite;
+  will-change: clip-path; /* Optimize animation performance */
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 /* Add a fun bounce animation for the logo */
@@ -323,60 +341,53 @@ html {
   will-change: transform;
   animation: clock 3s 1.25s ease-in-out infinite;
   transform-origin: 50% 50%;
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .sand-top,
 .sand-bottom {
   will-change: transform;
   transform-origin: 50% 30px;
-}
-
-.sand-top {
-  animation: clock-sand-top 3s ease-in-out infinite;
-}
-
-.sand-bottom {
-  animation: clock-sand-bottom 3s ease-in-out infinite;
-  transform: scale(0);
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 @keyframes clock {
   20%,
   50% {
-    transform: rotate(180deg);
+    transform: rotate(180deg) translateZ(0);
   }
 
   70%,
   100% {
-    transform: rotate(360deg);
+    transform: rotate(360deg) translateZ(0);
   }
 }
 
 @keyframes clock-sand-top {
   0% {
-    transform: scale(1);
+    transform: scale(1) translateZ(0);
   }
 
   50% {
-    transform: scale(0);
+    transform: scale(0) translateZ(0);
   }
 
   100% {
-    transform: scale(1);
+    transform: scale(1) translateZ(0);
   }
 }
 
 @keyframes clock-sand-bottom {
   0% {
-    transform: scale(0);
+    transform: scale(0) translateZ(0);
   }
 
   50% {
-    transform: scale(1);
+    transform: scale(1) translateZ(0);
   }
 
   100% {
-    transform: scale(0);
+    transform: scale(0) translateZ(0);
   }
 }
 

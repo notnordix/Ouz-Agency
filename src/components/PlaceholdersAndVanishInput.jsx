@@ -98,12 +98,12 @@ export const PlaceholdersAndVanishInput = ({ placeholders = ["Enter your email"]
                   opacity: 1,
                 }}
                 exit={{
-                  y: -15,
+                  y: -10, // Reduced movement
                   opacity: 0,
                 }}
                 transition={{
-                  duration: 0.3,
-                  ease: "linear",
+                  duration: 0.4, // Slightly faster
+                  ease: "easeOut", // Changed from linear for better performance
                 }}
                 className="text-white/70 text-sm sm:text-base font-normal pl-10 sm:pl-12 md:pl-16 text-left w-[calc(100%-2rem)] truncate font-sans"
               >

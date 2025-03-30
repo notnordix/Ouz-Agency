@@ -211,11 +211,11 @@ function App() {
               <motion.div
                 className="absolute -inset-1 bg-gradient-to-r from-primary-600/30 to-primary-700/30 rounded-full blur-md"
                 animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.5, 0.8, 0.5],
+                  scale: [1, 1.05, 1], // Reduced scale range
+                  opacity: [0.5, 0.7, 0.5], // Reduced opacity range
                 }}
                 transition={{
-                  duration: 3,
+                  duration: 4, // Slower animation
                   repeat: Number.POSITIVE_INFINITY,
                   ease: "easeInOut",
                 }}

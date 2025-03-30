@@ -3,7 +3,12 @@
 export const SandClock = ({ className = "" }) => {
   return (
     <div className={`sand-clock-container ${className}`}>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47 63.5" className="sand-clock">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 47 63.5"
+        className="sand-clock"
+        style={{ willChange: "transform", transform: "translateZ(0)" }} // Add GPU acceleration
+      >
         <path
           d="M1.27,8.39H4.89A32.64,32.64,0,0,0,8.51,22.57C10.9,27,14.18,30.27,18,31.9a1.29,1.29,0,0,0,.51.1,1.26,1.26,0,0,0,1.16-.75A1.23,1.23,0,0,0,19,29.61C12.46,26.83,7.81,18.2,7.44,8.39H45.73A1.26,1.26,0,0,0,47,7.14V1.25A1.26,1.26,0,0,0,45.73,0H1.27A1.26,1.26,0,0,0,0,1.25V7.14A1.26,1.26,0,0,0,1.27,8.39Zm1.28-5.9h41.9V5.9H2.55Z"
           fill="currentColor"
@@ -18,12 +23,14 @@ export const SandClock = ({ className = "" }) => {
           className="sand-top"
           d="M34.94,12.82a1.28,1.28,0,0,0-1-.5H12.51a1.27,1.27,0,0,0-1,.5,1.29,1.29,0,0,0-.24,1.12,24.16,24.16,0,0,0,4.34,9.22c2.2,2.72,4.84,4.16,7.62,4.16s5.42-1.44,7.63-4.16a24.15,24.15,0,0,0,4.33-9.22A1.32,1.32,0,0,0,34.94,12.82ZM23.21,24.72c-4.1,0-7.34-4.7-9-9.8h18C30.55,20,27.31,24.72,23.21,24.72Z"
           fill="currentColor"
+          style={{ willChange: "transform" }} // Add GPU acceleration
         />
 
         <path
           className="sand-bottom"
           d="M34.94,49.82a1.31,1.31,0,0,1-1,.5H12.51a1.31,1.31,0,0,1-1.26-1.62,24.16,24.16,0,0,1,4.34-9.22c2.2-2.72,4.84-4.16,7.62-4.16s5.42,1.44,7.63,4.16a24.15,24.15,0,0,1,4.33,9.22A1.32,1.32,0,0,1,34.94,49.82ZM23.21,37.92c-4.1,0-7.34,4.7-9,9.8h18C30.55,42.62,27.31,37.92,23.21,37.92Z"
           fill="currentColor"
+          style={{ willChange: "transform" }} // Add GPU acceleration
         />
       </svg>
     </div>
