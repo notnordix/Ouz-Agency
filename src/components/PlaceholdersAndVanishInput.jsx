@@ -37,7 +37,7 @@ export const PlaceholdersAndVanishInput = ({ placeholders = ["Enter your email"]
   return (
     <div className="relative">
       <form
-        className={`w-full relative max-w-2xl mx-auto bg-white/10 backdrop-blur-sm h-12 sm:h-14 md:h-16 rounded-full overflow-hidden shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200 ${
+        className={`w-full relative max-w-2xl mx-auto bg-white/10 backdrop-blur-sm h-12 sm:h-14 md:h-14 rounded-full overflow-hidden shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200 ${
           value ? "bg-white/20" : ""
         }`}
         onSubmit={handleSubmit}
