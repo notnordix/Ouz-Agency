@@ -27,6 +27,22 @@ function App() {
   const [openSnackbar, setOpenSnackbar] = useState(false)
   const [message, setMessage] = useState("")
 
+  // Add viewport height fix for mobile browsers
+  useEffect(() => {
+    // Fix for mobile browser viewport height issues
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01
+      document.documentElement.style.setProperty("--vh", `${vh}px`)
+    }
+
+    setVh()
+    window.addEventListener("resize", setVh)
+
+    return () => {
+      window.removeEventListener("resize", setVh)
+    }
+  }, [])
+
   // Email validation
   useEffect(() => {
     if (isTouched) {
@@ -128,7 +144,7 @@ function App() {
   ]
 
   return (
-    <div className="min-h-screen hero-background overflow-x-hidden">
+    <div className="min-h-[calc(100*var(--vh,1vh))] hero-background overflow-x-hidden">
       {/* Header */}
       <header className="header w-full">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
@@ -146,12 +162,12 @@ function App() {
       </header>
 
       {/* Main Content */}
-      <main className="main-content">
+      <main className="main-content min-h-[calc(100*var(--vh,1vh))]">
         <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 relative hero-content">
           {/* Message Section */}
           <section className="message-section">
             <motion.div
-              className="relative mb-6"
+              className="relative mb-4 sm:mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
@@ -171,7 +187,7 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="message-subtitle max-w-2xl mx-auto"
+              className="message-subtitle max-w-2xl mx-auto mb-6 sm:mb-8"
             >
               Join our newsletter for exclusive updates on the <span className="text-[#9c2d40] font-semibold">Ouz</span>{" "}
               website launch.
@@ -187,21 +203,6 @@ function App() {
           >
             <div className="absolute -z-10 w-full h-full top-0 left-0 bg-gradient-to-r from-primary-600/10 to-primary-700/10 blur-3xl rounded-full transform -translate-y-1/2"></div>
             <div className="relative">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-50 text-[#9c2d40] "
-              >
-                <rect width="20" height="16" x="2" y="4" rx="2" />
-                <path d="m22 6-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 6" />
-              </svg>
               <PlaceholdersAndVanishInput
                 placeholders={placeholders}
                 onChange={handleEmailChange}
@@ -211,30 +212,30 @@ function App() {
           </motion.div>
 
           {/* Social Links Section */}
-          <motion.div {...fadeInWithDelay(0.4)} className="social-links mt-16">
-            <div className="text-center mb-4 text-white/80 text-sm">Connect with us</div>
-            <div className="flex justify-center gap-6">
+          <motion.div {...fadeInWithDelay(0.4)} className="social-links mt-8 sm:mt-12 md:mt-16">
+            <div className="text-center mb-3 sm:mb-4 text-white/80 text-xs sm:text-sm">Connect with us</div>
+            <div className="flex justify-center gap-4 sm:gap-6">
               <motion.a
                 href="https://www.instagram.com/ouzagency/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-link bg-white/10 backdrop-blur-sm p-4 rounded-full"
+                className="social-link bg-white/10 backdrop-blur-sm p-3 sm:p-4 rounded-full"
                 aria-label="Instagram"
                 whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Instagram className="h-6 w-6" />
+                <Instagram className="h-5 w-5 sm:h-6 sm:w-6" />
               </motion.a>
               <motion.a
                 href="https://www.linkedin.com/company/ouzagency/about/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-link bg-white/10 backdrop-blur-sm p-4 rounded-full"
+                className="social-link bg-white/10 backdrop-blur-sm p-3 sm:p-4 rounded-full"
                 aria-label="LinkedIn"
                 whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Linkedin className="h-6 w-6" />
+                <Linkedin className="h-5 w-5 sm:h-6 sm:w-6" />
               </motion.a>
             </div>
           </motion.div>
@@ -255,7 +256,7 @@ function App() {
               <div className="flex items-center">
                 {status === "success" ? (
                   <svg
-                    className="w-5 h-5 mr-2 flex-shrink-0"
+                    className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -270,7 +271,7 @@ function App() {
                   </svg>
                 ) : (
                   <svg
-                    className="w-5 h-5 mr-2 flex-shrink-0"
+                    className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -284,14 +285,14 @@ function App() {
                     ></path>
                   </svg>
                 )}
-                <span className="text-sm font-medium">{message}</span>
+                <span className="text-xs sm:text-sm font-medium">{message}</span>
               </div>
               <button
                 onClick={handleCloseSnackbar}
-                className="ml-4 text-white hover:text-gray-200 focus:outline-none transition-colors duration-200 p-2 rounded-full hover:bg-white/10"
+                className="ml-3 sm:ml-4 text-white hover:text-gray-200 focus:outline-none transition-colors duration-200 p-1.5 sm:p-2 rounded-full hover:bg-white/10"
                 aria-label="Close notification"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
