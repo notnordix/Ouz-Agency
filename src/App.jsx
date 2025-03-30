@@ -160,7 +160,7 @@ function App() {
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <img src={logo || "/placeholder.svg"} alt="OUZ Logo" className="h-12 sm:h-14 w-auto" />
+              <img src={logo || "/placeholder.svg"} alt="OUZ Logo" className="h-9 sm:h-11 w-auto" />
             </motion.div>
 
             {/* Sand Clock in Header */}
