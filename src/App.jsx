@@ -220,7 +220,7 @@ function App() {
                   ease: "easeInOut",
                 }}
               />
-              <SandClock className="text-white w-5 h-7 sm:w-6 sm:h-8" />
+              <SandClock className="text-white w-5 h-6 sm:w-6 sm:h-8" />
             </motion.div>
           </motion.div>
         </div>
