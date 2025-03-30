@@ -49,7 +49,7 @@ input:-webkit-autofill:active {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.80));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.8));
   z-index: 1;
 }
 
@@ -312,5 +312,61 @@ html {
 
 .pulse-animation {
   animation: pulse 2s ease-in-out infinite;
+}
+
+/* Infinity symbol animation */
+@keyframes flow {
+  0%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dashoffset: 100;
+  }
+}
+
+.infinity-animation path {
+  stroke-dasharray: 100;
+  animation: flow 3s ease-in-out infinite;
+}
+
+/* Enhanced infinity symbol animation */
+.infinity-glow {
+  filter: drop-shadow(0 0 8px rgba(156, 45, 64, 0.6));
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 2px rgba(156, 45, 64, 0.6));
+  }
+  to {
+    filter: drop-shadow(0 0 8px rgba(156, 45, 64, 0.8));
+  }
+}
+
+.infinity-path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw 6s ease-in-out infinite;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0.4;
+  }
+  40% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  60% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -100;
+    opacity: 0.4;
+  }
 }
 
