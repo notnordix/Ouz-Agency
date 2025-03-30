@@ -15,6 +15,37 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Arial", sans-serif',
+    fontFamily: '"Nunito", "Fredoka", sans-serif',
+    h1: {
+      fontFamily: '"Fredoka", sans-serif',
+      fontWeight: 700,
+    },
+    h2: {
+      fontFamily: '"Fredoka", sans-serif',
+      fontWeight: 700,
+    },
+    h3: {
+      fontFamily: '"Fredoka", sans-serif',
+      fontWeight: 600,
+    },
+    h4: {
+      fontFamily: '"Fredoka", sans-serif',
+      fontWeight: 600,
+    },
+    h5: {
+      fontFamily: '"Fredoka", sans-serif',
+      fontWeight: 500,
+    },
+    h6: {
+      fontFamily: '"Fredoka", sans-serif',
+      fontWeight: 500,
+    },
+    body1: {
+      fontFamily: '"Nunito", sans-serif',
+    },
+    body2: {
+      fontFamily: '"Nunito", sans-serif',
+    },
   },
-}) 
+})
+

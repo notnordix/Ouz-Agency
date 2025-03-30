@@ -9,11 +9,11 @@ export const AnimatedText = ({ text = "Ouz", className = "" }) => {
   }, [])
 
   if (!isClient) {
-    return <span className={className}>{text}</span>
+    return <span className={`font-display ${className}`}>{text}</span>
   }
 
   return (
-    <span className="relative inline-block">
+    <span className="relative inline-block font-display">
       {/* First layer - outline */}
       <span className="absolute text-transparent" style={{ WebkitTextStroke: "2px #9c2d40" }}>
         {text}

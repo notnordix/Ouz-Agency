@@ -55,7 +55,7 @@ export const PlaceholdersAndVanishInput = ({ placeholders = ["Enter your email"]
           type="email"
           name="email"
           autoComplete="email"
-          className={`w-full relative text-sm sm:text-base z-50 border-none text-white bg-transparent h-full rounded-full focus:outline-none focus:ring-0 pl-10 sm:pl-12 md:pl-16 pr-14 sm:pr-16 md:pr-20 ${
+          className={`w-full relative text-sm sm:text-base z-50 border-none text-white bg-transparent h-full rounded-full focus:outline-none focus:ring-0 pl-10 sm:pl-12 md:pl-16 pr-14 sm:pr-16 md:pr-20 font-sans ${
             animating ? "text-transparent" : ""
           }`}
           style={{
@@ -105,7 +105,7 @@ export const PlaceholdersAndVanishInput = ({ placeholders = ["Enter your email"]
                   duration: 0.3,
                   ease: "linear",
                 }}
-                className="text-white/70 text-sm sm:text-base font-normal pl-10 sm:pl-12 md:pl-16 text-left w-[calc(100%-2rem)] truncate"
+                className="text-white/70 text-sm sm:text-base font-normal pl-10 sm:pl-12 md:pl-16 text-left w-[calc(100%-2rem)] truncate font-sans"
               >
                 {placeholders[currentPlaceholderIndex]}
               </motion.p>

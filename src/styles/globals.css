@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+/* Replace with more fun, playful fonts */
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -9,7 +10,7 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Nunito", sans-serif;
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
@@ -26,6 +27,7 @@ input:-webkit-autofill:active {
   background-clip: content-box !important;
 }
 
+/* Modify the hero-background class */
 .hero-background {
   position: relative;
   background-image: url("../assets/hero-bg.jpg");
@@ -33,9 +35,11 @@ input:-webkit-autofill:active {
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh; /* Fallback */
-  min-height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  min-height: calc(100 * var(--vh, 1vh));
   width: 100%;
   max-width: 100vw;
+  height: calc(100 * var(--vh, 1vh)); /* Added fixed height */
+  overflow: hidden; /* Prevent scrolling within the hero */
 }
 
 .hero-background::before {
@@ -68,14 +72,17 @@ input:-webkit-autofill:active {
   max-width: 100vw;
 }
 
+/* Modify the main-content class */
 .main-content {
   min-height: 100vh; /* Fallback */
-  min-height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  min-height: calc(100 * var(--vh, 1vh));
+  height: calc(100 * var(--vh, 1vh)); /* Added fixed height */
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-top: 4rem;
   width: 100%;
+  overflow-y: auto; /* Allow scrolling within the content if needed */
 }
 
 /* Message Section Styles */
@@ -86,12 +93,13 @@ input:-webkit-autofill:active {
 }
 
 .message-title {
+  font-family: "Fredoka", sans-serif;
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 700;
   color: white;
   margin-bottom: 1rem;
   line-height: 1.1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -101,7 +109,7 @@ input:-webkit-autofill:active {
   max-width: 2xl;
   margin: 0 auto;
   line-height: 1.6;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 /* Newsletter Form Styles */
@@ -193,26 +201,28 @@ input:-webkit-autofill:active {
 /* Responsive Adjustments */
 @media (max-width: 640px) {
   .message-title {
-    font-size: 2.25rem;
-    margin-bottom: 0.75rem;
+    font-size: 2rem; /* Slightly smaller font */
+    margin-bottom: 0.5rem;
   }
 
   .message-subtitle {
-    font-size: 1rem;
+    font-size: 0.875rem; /* Smaller font */
+    margin-bottom: 1rem;
   }
 
   .newsletter-form {
     padding: 0 0.75rem;
+    margin-bottom: 1rem; /* Reduced margin */
   }
 
   .main-content {
-    padding-top: 3.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 3rem; /* Reduced padding */
+    padding-bottom: 1rem;
+    justify-content: center; /* Center content vertically */
   }
 
-  .header {
-    padding: 0.5rem 0;
-    padding-top: calc(0.5rem + env(safe-area-inset-top, 0px));
+  .social-links {
+    margin-top: 1rem; /* Reduced margin */
   }
 }
 
@@ -272,5 +282,35 @@ html {
 
 .animate-wave-text {
   animation: wave 4s ease-in-out infinite;
+}
+
+/* Add a fun bounce animation for the logo */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bounce-animation {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* Add a fun pulse animation for buttons */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s ease-in-out infinite;
 }
 

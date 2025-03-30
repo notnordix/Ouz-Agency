@@ -154,7 +154,11 @@ function App() {
             transition={{ duration: 0.6 }}
             className="flex items-center justify-between"
           >
-            <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+            <motion.div
+              className="bounce-animation"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
               <img src={logo || "/placeholder.svg"} alt="OUZ Logo" className="h-12 sm:h-14 w-auto" />
             </motion.div>
           </motion.div>
@@ -178,7 +182,7 @@ function App() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="message-title relative z-10"
+                className="message-title relative z-10 font-display"
               >
                 <AnimatedText text="Ouz" /> is coming soon!
               </motion.h1>
@@ -189,8 +193,8 @@ function App() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="message-subtitle max-w-2xl mx-auto mb-6 sm:mb-8"
             >
-              Join our newsletter for exclusive updates on the <span className="text-[#9c2d40] font-semibold">Ouz</span>{" "}
-              website launch.
+              Join our newsletter for exclusive updates on the{" "}
+              <span className="text-[#9c2d40] font-semibold font-display">Ouz</span> website launch.
             </motion.p>
           </section>
 
@@ -212,30 +216,30 @@ function App() {
           </motion.div>
 
           {/* Social Links Section */}
-          <motion.div {...fadeInWithDelay(0.4)} className="social-links mt-8 sm:mt-12 md:mt-16">
-            <div className="text-center mb-3 sm:mb-4 text-white/80 text-xs sm:text-sm">Connect with us</div>
+          <motion.div {...fadeInWithDelay(0.4)} className="social-links mt-4 sm:mt-8 md:mt-16">
+            <div className="text-center mb-2 sm:mb-4 text-white/80 text-xs sm:text-sm font-medium">Connect with us</div>
             <div className="flex justify-center gap-4 sm:gap-6">
               <motion.a
                 href="https://www.instagram.com/ouzagency/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-link bg-white/10 backdrop-blur-sm p-3 sm:p-4 rounded-full"
+                className="social-link bg-white/10 backdrop-blur-sm p-2 sm:p-4 rounded-full pulse-animation"
                 aria-label="Instagram"
-                whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.2, backgroundColor: "rgba(255,255,255,0.2)" }}
+                whileTap={{ scale: 0.9, rotate: -5 }}
               >
-                <Instagram className="h-5 w-5 sm:h-6 sm:w-6" />
+                <Instagram className="h-4 w-4 sm:h-6 sm:w-6" />
               </motion.a>
               <motion.a
                 href="https://www.linkedin.com/company/ouzagency/about/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-link bg-white/10 backdrop-blur-sm p-3 sm:p-4 rounded-full"
+                className="social-link bg-white/10 backdrop-blur-sm p-2 sm:p-4 rounded-full pulse-animation"
                 aria-label="LinkedIn"
-                whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.2, backgroundColor: "rgba(255,255,255,0.2)" }}
+                whileTap={{ scale: 0.9, rotate: 5 }}
               >
-                <Linkedin className="h-5 w-5 sm:h-6 sm:w-6" />
+                <Linkedin className="h-4 w-4 sm:h-6 sm:w-6" />
               </motion.a>
             </div>
           </motion.div>

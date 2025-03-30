@@ -62,7 +62,12 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["Arial", "sans-serif"],
+        sans: ["Nunito", "sans-serif"],
+        display: ["Fredoka", "sans-serif"],
+      },
+      animation: {
+        "bounce-slow": "bounce 2s ease-in-out infinite",
+        "pulse-slow": "pulse 2s ease-in-out infinite",
       },
     },
   },
